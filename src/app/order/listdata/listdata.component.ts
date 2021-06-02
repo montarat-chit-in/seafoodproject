@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { OrderService } from '../../services/order.service';
 import { Order } from '../../services/order.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-listdata',
@@ -15,7 +16,8 @@ export class ListdataComponent implements OnInit {
   searchText: string = '';
   constructor(
     public firestore: AngularFirestore,
-    public oderservice: OrderService
+    public oderservice: OrderService,
+    public router: Router
   ) {
     // this.lists = this.firestore.collection('product').valueChanges();
   }

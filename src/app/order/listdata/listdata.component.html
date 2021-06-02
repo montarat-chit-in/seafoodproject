@@ -38,6 +38,7 @@
           <th>ราคา</th>
           <th>น้ำหนัก</th>
           <th></th>
+          <th></th>
         </tr>
         <ng-container *ngFor="let list of productlist">
           <tr>
@@ -48,6 +49,11 @@
             <td>{{ list.p_list }}</td>
             <td>{{ list.p_price }}</td>
             <td>{{ list.p_weight }}</td>
+            <td>
+              <a (click)="onEdit(list)">
+                <img class="icon" src="../../../assets/icon/pencil-square.svg"
+              /></a>
+            </td>
             <td>
               <a (click)="onDelete(list.id)"
                 ><img class="icon" src="../../../assets/icon/trash.svg"

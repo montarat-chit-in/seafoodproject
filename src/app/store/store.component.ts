@@ -42,6 +42,7 @@ export class StoreComponent implements OnInit {
             id: element.payload.doc.id,
             g_name: element.payload.doc.data()['g_name'],
             g_pic: element.payload.doc.data()['g_pic'],
+            g_district: element.payload.doc.data()['g_district'],
             g_address: element.payload.doc.data()['g_address'],
             g_tel: element.payload.doc.data()['g_tel'],
             g_map: element.payload.doc.data()['g_map'],

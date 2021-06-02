@@ -26,10 +26,15 @@ export class StoreService {
   //     );
   //   });
   // }
-  filterByDistrict(district) {
-    const bydistrict = this.firestore
-      .collection('group', (ref) => ref.where('g_district', '==', district))
-      .valueChanges();
-    return bydistrict;
+
+  getStore() {
+    return this.firestore.collection('group').snapshotChanges();
   }
+
+  // filterByDistrict(district) {
+  //   const bydistrict = this.firestore
+  //     .collection('group', (ref) => ref.where('g_district', '==', district))
+  //     .valueChanges();
+  //   return bydistrict;
+  // }
 }

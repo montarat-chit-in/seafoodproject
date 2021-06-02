@@ -57,26 +57,29 @@
         (change)="filterExact('g_district', g_district)"
       > -->
       <select>
-        <option value="อำเภอเมือง">อำเภอเมือง</option>
-        <option value="อำเภอกระบุรี">อำเภอกระบุรี</option>
-        <option value="อำเภอกะเปอร์">อำเภอกะเปอร์</option>
-        <option value="อำเภอละอุ่น">อำเภอละอุ่น</option>
-        <option value="อำเภอสุขสำราญ">อำเภอสุขสำราญ</option>
+        <option value="">เลือกอำเภอ</option>
+        <option value="g_district1">อำเภอเมือง</option>
+        <option value="g_district2">อำเภอกระบุรี</option>
+        <option value="g_district3">อำเภอกะเปอร์</option>
+        <option value="g_district4">อำเภอละอุ่น</option>
+        <option value="g_district5">อำเภอสุขสำราญ</option>
       </select>
 
       <table>
         <tr>
           <th>ชื่อผู้ประกอบการ</th>
           <th>รูป</th>
+          <th>อำเภอ</th>
           <th>เบอร์โทร</th>
           <th>แผนที่</th>
-          <th>ข้อมูลเพื่มเติม</th>
+          <th>ข้อมูลเพิ่มเติม</th>
         </tr>
         <tr *ngFor="let group of storer">
           <td>{{ group.g_name }}</td>
           <td>
             <img src="{{ group.g_pic }}" alt="" />
           </td>
+          <td>{{ group.g_district }}</td>
           <td>{{ group.g_tel }}</td>
           <td>
             <a href="{{ group.g_map }}" target="_blank"><i></i> เปิดแผนที่ </a>
