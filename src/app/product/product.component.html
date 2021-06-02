@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Product</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="head-type fish">
+          <div class="row">
+            <div class="col-md-6">สินค้าประเภทปลา</div>
+            <div class="col-md-6" style="text-align: end">
+              <a href="fish">ดูเพิ่มเติม >>></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="section mt-5">
+          <div class="row">
+            <div class="col-md-3" *ngFor="let fish of fisher">
+              <div class="deal-box">
+                <div>
+                  <img src="{{ fish.p_pic }}" class="img-fluid" alt="" />
+                </div>
+                <h2>{{ fish.p_name }}</h2>
+                <div class="button">
+                  <a class="deal-btn" (click)="detail(fish.id)">รายละเอียด</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="head-type squid">
+          <div class="row">
+            <div class="col-md-6">สินค้าประเภท หมึก</div>
+            <div class="col-md-6" style="text-align: end">
+              <a href="squid">ดูเพิ่มเติม >>></a>
+            </div>
+          </div>
+        </div>
+        <div class="section mt-5">
+          <div class="row">
+            <div class="col-md-3" *ngFor="let squid of squider">
+              <div class="deal-box">
+                <div>
+                  <img src="{{ squid.p_pic }}" class="img-fluid" alt="" />
+                </div>
+                <h2>{{ squid.p_name }}</h2>
+                <div class="button">
+                  <a class="deal-btn" (click)="detail(squid.id)">รายละเอียด</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="head-type shrimp">
+          <div class="row">
+            <div class="col-md-6">สินค้าประเภท กุ้ง หอย ปู</div>
+            <div class="col-md-6" style="text-align: end">
+              <a href="shrimp">ดูเพิ่มเติม >>></a>
+            </div>
+          </div>
+        </div>
+        <div class="section mt-5">
+          <div class="row">
+            <div class="col-md-3" *ngFor="let shrimp of shrimper">
+              <div class="deal-box">
+                <div>
+                  <img src="{{ shrimp.p_pic }}" class="img-fluid" alt="" />
+                </div>
+                <h2>{{ shrimp.p_name }}</h2>
+                <div class="button">
+                  <a class="deal-btn" (click)="detail(shrimp.id)">รายละเอียด</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

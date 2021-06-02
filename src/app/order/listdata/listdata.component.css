@@ -1,0 +1,31 @@
+.container {
+  padding: 20px;
+}
+.container h2 {
+  text-align: center;
+}
+img {
+  width: 80px;
+  height: 80px;
+}
+.icon {
+  width: 30px;
+  height: 30px;
+}
+
+table {
+  font-family: "Mitr", sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td,
+th {
+  border: 1px solid #585757;
+  text-align: center;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}

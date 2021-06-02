@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="cover">
+          <img src="{{ detailStore.g_pic }}" alt="" />
+        </div>
+
+        <div class="content">
+          <div class="content-body">
+            <div class="black-label">
+              <span class="title"
+                ><b
+                  ><h2>{{ detailStore.g_name }}</h2></b
+                ></span
+              >
+
+              <div class="detail">
+                <div class="data">
+                  <span>ที่อยู่ : </span>{{ detailStore.g_address }}
+                </div>
+                <div class="data">
+                  <span>เบอร์โทร : </span>{{ detailStore.g_tel }}
+                </div>
+                <div class="data">
+                  <span> แผนที่ :</span>
+                  <a href="{{ detailStore.g_map }}" target="_blank"
+                    ><i></i> เปิดแผนที่
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

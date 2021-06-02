@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "project-me-i": {
+      "hosting": {
+        "project-me-i": [
+          "project-me-i"
+        ]
+      }
+    }
+  }
+}

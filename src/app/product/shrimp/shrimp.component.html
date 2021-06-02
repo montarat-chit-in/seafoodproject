@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>shrimp</title>
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="head-type fish">สินค้าประเภทกุ้ง ปู หอย</div>
+        <div class="section mt-5">
+          <div class="row">
+            <div class="col-md-3" *ngFor="let shrimp of shrimper">
+              <div class="deal-box">
+                <div>
+                  <img src="{{ shrimp.p_pic }}" class="img-fluid" alt="" />
+                </div>
+                <h2>{{ shrimp.p_name }}</h2>
+                <div class="button">
+                  <a class="deal-btn" (click)="detail(shrimp.id)">รายละเอียด</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>

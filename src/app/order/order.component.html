@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="display-4">ลงผลิตภัณฑ์</h1>
+      <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+        <input
+          type="hidden"
+          name="id"
+          #id="ngModel"
+          [(ngModel)]="orderservice.formData.id"
+        />
+        <div class="form-group">
+          <input
+            name="p_name"
+            #p_name="ngModel"
+            [(ngModel)]="orderservice.formData.p_name"
+            class="form-control"
+            placeholder="ชื่อสินค้า"
+            required
+          />
+        </div>
+
+        <div class="form-group">
+          <input
+            name="p_price"
+            #p_price="ngModel"
+            [(ngModel)]="orderservice.formData.p_price"
+            class="form-control"
+            placeholder="ราคา"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="p_weight"
+            #p_weight="ngModel"
+            [(ngModel)]="orderservice.formData.p_weight"
+            class="form-control"
+            placeholder="น้ำหนัก"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="p_list"
+            #p_list="ngModel"
+            [(ngModel)]="orderservice.formData.p_list"
+            class="form-control"
+            placeholder="ชื่อผู้ผลิต หรือ ชื่อผู้ประกอบการ"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="p_address"
+            #p_address="ngModel"
+            [(ngModel)]="orderservice.formData.p_address"
+            class="form-control"
+            placeholder="ที่อยู่"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="p_tel"
+            #p_tel="ngModel"
+            [(ngModel)]="orderservice.formData.p_tel"
+            class="form-control"
+            placeholder="เบอร์โทร"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="p_face"
+            #p_face="ngModel"
+            [(ngModel)]="orderservice.formData.p_face"
+            class="form-control"
+            placeholder="Facebook"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="p_line"
+            #p_line="ngModel"
+            [(ngModel)]="orderservice.formData.p_line"
+            class="form-control"
+            placeholder="Line"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="p_num"
+            #p_num="ngModel"
+            [(ngModel)]="orderservice.formData.p_num"
+            class="form-control"
+            placeholder="ปริมาณการผลิต"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="p_save"
+            #p_save="ngModel"
+            [(ngModel)]="orderservice.formData.p_save"
+            class="form-control"
+            placeholder="ระยะเวลาการเก็บรักษา"
+            required
+          />
+        </div>
+
+        <div class="radiobtn">
+          <label class="containerradio">
+            ประเภทปลา
+            <input
+              [(ngModel)]="orderservice.formData.type"
+              #type="ngModel"
+              type="radio"
+              name="type"
+              value="1"
+              required
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="containerradio">
+            ประเภทหมึก
+            <input
+              [(ngModel)]="orderservice.formData.type"
+              #type="ngModel"
+              type="radio"
+              name="type"
+              value="2"
+              required
+            />
+            <span class="checkmark"></span>
+          </label>
+          <label class="containerradio">
+            ประเภทกุ้ง ปู หอย
+            <input
+              [(ngModel)]="orderservice.formData.type"
+              #type="ngModel"
+              type="radio"
+              name="type"
+              value="3"
+              required
+            />
+            <span class="checkmark"></span>
+          </label>
+        </div>
+
+        <div>
+          <input
+            type="file"
+            name="image"
+            (input)="onFileChanged($event)"
+            accept=".jpeg,.jpg,.png,.svg"
+          />
+          <br />
+          <img
+            [src]="downloadableURL"
+            onerror="this.onerror=null;this.src='assets/img/noimagepic.jpg';"
+            width="300px"
+            height="300px"
+          />
+          <br />
+          <div class="form-group">
+            <input
+              name="p_pic"
+              type="text"
+              #p_pic="ngModel"
+              [(ngModel)]="orderservice.formData.p_pic"
+              class="form-control"
+              required
+              placeholder="นำลิ้งค์ด้านล่างมาใส่"
+            />
+          </div>
+          <div>
+            {{ downloadableURL }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-lg btn-block btn-info">
+            SUBMIT
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

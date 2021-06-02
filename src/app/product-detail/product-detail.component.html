@@ -1,0 +1,101 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous"
+  />
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container">
+        <div class="card">
+          <div class="image">
+            <img src="{{ detailProduct.p_pic }}" alt="" />
+          </div>
+          <div class="store-detail">
+            <h2>{{ detailProduct.p_name }}</h2>
+
+            <div class="detail">
+              <div class="data"><span>ที่อยู่ :</span> บ้าน</div>
+              <div class="data"><span>เบอร์โทร :</span>0944094741</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> -->
+
+้<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <main>
+      <div class="container">
+        <div class="cover">
+          <img src="{{ detailProduct.p_pic }}" alt="" />
+        </div>
+
+        <div class="content">
+          <div class="content-body">
+            <div class="black-label">
+              <span class="title"
+                ><b
+                  ><h2>{{ detailProduct.p_name }}</h2></b
+                ></span
+              >
+
+              <div class="detail">
+                <div class="data">
+                  <span>ราคา : </span>{{ detailProduct.p_price }}
+                </div>
+                <div class="data">
+                  <span>น้ำหนัก : </span>{{ detailProduct.p_weight }}
+                </div>
+                <div class="data">
+                  <span>ชื่อผู้ผลิต : </span>{{ detailProduct.p_list }}
+                </div>
+                <div class="data">
+                  <span>ที่อยู่ : </span>{{ detailProduct.p_address }}
+                </div>
+                <div class="data">
+                  <span>เบอร์โทร : </span>{{ detailProduct.p_tel }}
+                </div>
+                <div class="data">
+                  <span>Facebook : </span>{{ detailProduct.p_face }}
+                </div>
+                <div class="data">
+                  <span>Line : </span>{{ detailProduct.p_line }}
+                </div>
+                <div class="data">
+                  <span>ระยะเวลาการเก็บรักษา : </span>{{ detailProduct.p_save }}
+                </div>
+                <div class="data">
+                  <span>ปริมาณที่ผลิต : </span>{{ detailProduct.p_num }}
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>

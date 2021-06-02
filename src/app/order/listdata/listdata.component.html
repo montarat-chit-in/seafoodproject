@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h2>ตารางรายชื่อสินค้า</h2>
+      <div class="addproduct">
+        <button><a href="/order">เพิ่มสินค้า</a></button>
+      </div>
+      <!-- <form class="form-inline">
+        <input
+          class="form-control"
+          name="searchInput"
+          placeholder="ค้นหา"
+          #searchInput="ngModel"
+          [(ngModel)]="searchText"
+        />
+        <button class="btn btn-outline-primary" (click)="searchText = ''">
+          X
+        </button>
+      </form> -->
+      <table>
+        <tr>
+          <th>ชื่อสินค้า</th>
+          <th>รูปสินค้า</th>
+          <th>ชื่อผู้ประกอบการ</th>
+          <th>ราคา</th>
+          <th>น้ำหนัก</th>
+          <th></th>
+        </tr>
+        <ng-container *ngFor="let list of productlist">
+          <tr>
+            <td>{{ list.p_name }}</td>
+            <td>
+              <img src="{{ list.p_pic }}" alt="" />
+            </td>
+            <td>{{ list.p_list }}</td>
+            <td>{{ list.p_price }}</td>
+            <td>{{ list.p_weight }}</td>
+            <td>
+              <a (click)="onDelete(list.id)"
+                ><img class="icon" src="../../../assets/icon/trash.svg"
+              /></a>
+            </td>
+          </tr>
+        </ng-container>
+      </table>
+    </div>
+  </body>
+</html>

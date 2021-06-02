@@ -1,0 +1,93 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <title>store page</title>
+  </head>
+  <body>
+    <div class="main">
+      <div class="container" *ngFor="let group of groups | async">
+        <div class="card">
+          <div class="image">
+            <img src="{{ group.g_pic }}" alt="" />
+          </div>
+          <div class="store-detail">
+            <h2>{{ group.g_name }}</h2>
+            <div class="detail">
+              <div class="data">
+                <span>ที่อยู่ :</span> {{ group.g_address }}
+              </div>
+              <div class="data"><span>เบอร์โทร :</span> {{ group.g_tel }}</div>
+              <div class="data">
+                <span> แผนที่ :</span>
+
+                <a href="{{ group.g_map }}" target="_blank"
+                  ><i></i> เปิดแผนที่
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <!-- <select
+        [(ngModel)]="g_district"
+        (change)="filterExact('g_district', g_district)"
+      > -->
+      <select>
+        <option value="อำเภอเมือง">อำเภอเมือง</option>
+        <option value="อำเภอกระบุรี">อำเภอกระบุรี</option>
+        <option value="อำเภอกะเปอร์">อำเภอกะเปอร์</option>
+        <option value="อำเภอละอุ่น">อำเภอละอุ่น</option>
+        <option value="อำเภอสุขสำราญ">อำเภอสุขสำราญ</option>
+      </select>
+
+      <table>
+        <tr>
+          <th>ชื่อผู้ประกอบการ</th>
+          <th>รูป</th>
+          <th>เบอร์โทร</th>
+          <th>แผนที่</th>
+          <th>ข้อมูลเพื่มเติม</th>
+        </tr>
+        <tr *ngFor="let group of storer">
+          <td>{{ group.g_name }}</td>
+          <td>
+            <img src="{{ group.g_pic }}" alt="" />
+          </td>
+          <td>{{ group.g_tel }}</td>
+          <td>
+            <a href="{{ group.g_map }}" target="_blank"><i></i> เปิดแผนที่ </a>
+          </td>
+          <td>
+            <a (click)="detailstore(group.id)"
+              ><img class="icon" src="../../assets/icon/arrow-right-right.svg"
+            /></a>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </body>
+</html>

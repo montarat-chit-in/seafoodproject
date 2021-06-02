@@ -117,8 +117,16 @@
               "devServerTarget": "project-me-i:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
-    }},
-  "defaultProject": "project-me-i"
+    }
+  },
+  "defaultProject": "project-me-i",
+  "cli": {
+    "analytics": false
+  }
 }

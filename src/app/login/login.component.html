@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <div class="container">
+      <header>ลงชื่อเข้าสู่ระบบ</header>
+      <form (ngSubmit)="login()">
+        <div class="input-field">
+          <input
+            class="email"
+            type="email"
+            name="email"
+            [(ngModel)]="email"
+            required
+          />
+          <label>Email</label>
+        </div>
+        <div class="input-field">
+          <input
+            class="pswrd"
+            type="password"
+            name="password"
+            [(ngModel)]="password"
+            required
+          />
+          <label>Password</label>
+        </div>
+        <div class="button">
+          <div class="inner"></div>
+          <button type="submit">LOGIN</button>
+        </div>
+      </form>
+      <div class="signup">ไม่ใช่สมาชิก? <a href="register">สมัครตรงนี้</a></div>
+      <div class="form-group">
+        <p *ngIf="errorMessage.length > 0" class="text-danger">
+          {{ errorMessage }}
+        </p>
+
+        <p *ngIf="error.message.length > 0" class="text-danger">
+          {{ error.message }}
+        </p>
+      </div>
+    </div>
+    <script>
+      var input = document.querySelector(".pswrd");
+      var show = document.querySelector(".show");
+      show.addEventListener("click", active);
+      function active() {
+        if (input.type === "password") {
+          input.type = "text";
+          show.style.color = "#1DA1F2";
+          show.textContent = "HIDE";
+        } else {
+          input.type = "password";
+          show.textContent = "SHOW";
+          show.style.color = "#111";
+        }
+      }
+    </script>
+  </body>
+</html>
