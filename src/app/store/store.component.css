@@ -59,8 +59,12 @@ span {
   align-items: center;
   flex-wrap: wrap;
 } */
+body {
+}
 .container {
   padding: 20px;
+  padding-left: 0;
+  font-family: "Mitr", sans-serif;
 }
 .container h2 {
   text-align: center;
@@ -75,18 +79,30 @@ img {
 }
 
 table {
-  font-family: "Mitr", sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 110%;
+  margin-top: 20px;
 }
 
 td,
 th {
   border: 1px solid #585757;
   text-align: center;
-  padding: 8px;
+  padding: 5px;
+}
+tr {
+  background-color: #fff;
+}
+tr:nth-child(even) {
+  background-color: #c4edfa;
 }
 
-tr:nth-child(even) {
-  background-color: #dddddd;
+.arrow {
+  cursor: pointer;
+  object-fit: cover;
+  transition: all 0.3s ease-in-out;
+  color: red;
+}
+.arrow:hover {
+  transform: scale(1.2);
 }

@@ -13,7 +13,9 @@ export class StoreDetailComponent implements OnInit {
     g_pic: '',
     g_address: '',
     g_tel: '',
-    g_map: '',
+    g_face: '',
+    g_line: '',
+    g_product: '',
   };
 
   constructor(
@@ -36,7 +38,9 @@ export class StoreDetailComponent implements OnInit {
         this.detailStore.g_pic = data.data()['g_pic'];
         this.detailStore.g_address = data.data()['g_address'];
         this.detailStore.g_tel = data.data()['g_tel'];
-        this.detailStore.g_map = data.data()['g_map'];
+        this.detailStore.g_face = data.data()['g_face'];
+        this.detailStore.g_line = data.data()['g_line'];
+        this.detailStore.g_product = data.data()['g_product'];
       });
   }
 }

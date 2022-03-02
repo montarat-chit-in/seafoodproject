@@ -11,10 +11,14 @@ export class ProductComponent implements OnInit {
   fishs: Observable<any[]>;
   shrimps: Observable<any[]>;
   squids: Observable<any[]>;
+  others: Observable<any[]>;
 
   fisher;
   squider;
   shrimper;
+  otherder;
+  searchValue: string = '';
+  results: any;
 
   constructor(public firestore: AngularFirestore, private route: Router) {
     this.firestore
@@ -76,6 +80,26 @@ export class ProductComponent implements OnInit {
           };
         });
       });
+
+    this.firestore
+      .collection('product', (ref) => ref.where('type', '==', '4').limit(4))
+      .snapshotChanges()
+      .subscribe((data) => {
+        this.otherder = data.map((element) => {
+          return {
+            id: element.payload.doc.id,
+            p_name: element.payload.doc.data()['p_name'],
+            p_pic: element.payload.doc.data()['p_pic'],
+            pid: element.payload.doc.data()['pid'],
+            p_address: element.payload.doc.data()['p_address'],
+            p_list: element.payload.doc.data()['p_list'],
+            p_num: element.payload.doc.data()['p_num'],
+            p_price: element.payload.doc.data()['p_price'],
+            p_tel: element.payload.doc.data()['p_tel'],
+            p_weight: element.payload.doc.data()['p_weight'],
+          };
+        });
+      });
   }
 
   // this.fishs = this.firestore
@@ -89,6 +113,19 @@ export class ProductComponent implements OnInit {
   //   .valueChanges();
 
   ngOnInit(): void {}
+
+  search() {
+    let self = this;
+    self.results = self.firestore
+      .collection('product', (ref) =>
+        ref
+          .orderBy('p_name')
+          .startAt(self.searchValue.toLowerCase())
+          .endAt(self.searchValue.toLowerCase() + '\uf8ff')
+          .limit(1)
+      )
+      .valueChanges();
+  }
 
   detail(id) {
     this.route.navigate(['/product/' + id]);

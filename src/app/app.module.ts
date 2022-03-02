@@ -31,6 +31,11 @@ import {
 import { environment } from '../environments/environment';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFireStorageModule } from '@angular/fire/storage';
+import { StoreOrderComponent } from './store-order/store-order.component';
+import { ListstoredataComponent } from './store-order/liststoredata/liststoredata.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { OtherComponent } from './product/other/other.component';
+import { HelloworldComponent } from './helloworld/helloworld.component';
 
 const appRoutes: Routes = [
   { path: '', component: MainComponent },
@@ -41,13 +46,19 @@ const appRoutes: Routes = [
   { path: 'fish', component: FishComponent },
   { path: 'squid', component: SquidComponent },
   { path: 'shrimp', component: ShrimpComponent },
+  { path: 'other', component: OtherComponent },
   { path: 'product/:key', component: ProductDetailComponent },
   { path: 'fish/:key', component: ProductDetailComponent },
   { path: 'squid/:key', component: ProductDetailComponent },
   { path: 'shrimp/:key', component: ProductDetailComponent },
+  { path: 'other/:key', component: ProductDetailComponent },
   { path: 'order', component: OrderComponent },
   { path: 'listdata', component: ListdataComponent },
   { path: 'store/:key', component: StoreDetailComponent },
+  { path: 'liststoredata', component: ListstoredataComponent },
+  { path: 'storeorder', component: StoreOrderComponent },
+  { path: 'dashboard', component: DashboardComponent },
+  { path: 'helloworld', component: HelloworldComponent },
 ];
 
 @NgModule({
@@ -67,6 +78,11 @@ const appRoutes: Routes = [
     OrderComponent,
     ListdataComponent,
     StoreDetailComponent,
+    StoreOrderComponent,
+    ListstoredataComponent,
+    DashboardComponent,
+    OtherComponent,
+    HelloworldComponent,
   ],
   imports: [
     FormsModule,

@@ -220,7 +220,11 @@ h4 {
 }
 
 /*-----footer------*/
-footer {
-  padding-top: 50px;
+.footer {
   background: #eb9a03;
+  padding: 20px;
+  font-family: "Mitr", sans-serif;
+}
+.footer h5 {
+  text-align: center;
 }

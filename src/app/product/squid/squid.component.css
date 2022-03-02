@@ -22,6 +22,7 @@
 }
 .deal-box:hover {
   box-shadow: 1px 1px 20px rgb(5, 228, 236);
+  transform: scale(1.1);
 }
 .img-fluid {
   width: 100%;

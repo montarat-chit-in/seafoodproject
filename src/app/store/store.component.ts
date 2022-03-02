@@ -13,27 +13,34 @@ import { Router } from '@angular/router';
 })
 export class StoreComponent implements OnInit {
   groups: Observable<any[]>;
-  // districts: any;
-  // filterdistricts: any;
-  // g_district: string;
-  // filters = {};
+  select: any;
+  sub: any;
+
+  countries = [
+    'เลือกอำเภอ',
+    'อำเภอเมือง',
+    'อำเภอกระบุรี',
+    'อำเภอกะเปอร์',
+    'อำเภอละอุ่น',
+    'อำเภอสุขสำราญ',
+  ];
   storer;
   constructor(
     public firestore: AngularFirestore,
     public storeservice: StoreService,
     public afs: AngularFireDatabase,
     private route: Router
-  ) {
-    // this.firestore
-    //   .collection('group')
-    //   .valueChanges()
-    //   .subscribe((districts) => {
-    //     this.districts = districts;
-    //     this.applyFilters();
-    //   });
+  ) {}
+  async ngOnInit() {
+    await this.loadData();
   }
-  ngOnInit() {
-    this.firestore
+  detailstore(id) {
+    this.route.navigate(['/store/' + id]);
+    console.log(id);
+  }
+
+  async loadData() {
+    await this.firestore
       .collection('group')
       .snapshotChanges()
       .subscribe((data) => {
@@ -42,25 +49,28 @@ export class StoreComponent implements OnInit {
             id: element.payload.doc.id,
             g_name: element.payload.doc.data()['g_name'],
             g_pic: element.payload.doc.data()['g_pic'],
-            g_district: element.payload.doc.data()['g_district'],
             g_address: element.payload.doc.data()['g_address'],
             g_tel: element.payload.doc.data()['g_tel'],
             g_map: element.payload.doc.data()['g_map'],
+            g_subdistrict: element.payload.doc.data()['g_subdistrict'],
+            g_district: element.payload.doc.data()['g_district'],
+            g_line: element.payload.doc.data()['g_line'],
+            g_face: element.payload.doc.data()['g_face'],
+            g_product: element.payload.doc.data()['g_product'],
           };
         });
+        console.log(this.storer);
       });
   }
-  // private applyFilters() {
-  //   this.filterdistricts = _.filter(this.districts, _.conforms(this.filters));
-  // }
 
-  // filterExact(property: string, rule: any) {
-  //   this.filters[property] = (val) => val == rule;
-  //   this.applyFilters;
-  // }
+  change(select: string) {
+    this.select = select;
+    console.log(select);
+  }
 
-  detailstore(id) {
-    this.route.navigate(['/store/' + id]);
-    console.log(id);
+  testt: any;
+  test(test: any) {
+    this.testt = test;
+    console.log(test);
   }
 }

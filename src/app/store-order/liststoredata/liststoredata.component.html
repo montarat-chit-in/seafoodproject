@@ -18,9 +18,9 @@
     </div>
 
     <div style="margin-left: 20%; padding: 1px 16px; height: 1000px">
-      <app-order></app-order>
+      <app-store-order></app-store-order>
       <div class="container">
-        <h2>ตารางรายชื่อสินค้า</h2>
+        <h2>ตารางรายชื่อผู้ประกอบการ</h2>
         <!-- <div class="addproduct">
         <button
           class="btn btn-outline-success"
@@ -32,32 +32,32 @@
       </div> -->
         <table>
           <tr>
-            <th>ชื่อสินค้า</th>
-            <th>รูปสินค้า</th>
             <th>ชื่อผู้ประกอบการ</th>
-            <th>ราคา</th>
-            <th>น้ำหนัก</th>
+            <th>รูปสินค้า</th>
+            <th>อำเภอ</th>
+            <th>สินค้า</th>
+            <th>เบอร์โทร</th>
             <th></th>
             <th></th>
           </tr>
-          <ng-container *ngFor="let list of productlist">
+          <ng-container *ngFor="let store of storetlist">
             <tr>
-              <td>{{ list.p_name }}</td>
+              <td>{{ store.g_name }}</td>
               <td>
-                <img src="{{ list.p_pic }}" alt="" />
+                <img src="{{ store.g_pic }}" alt="" />
               </td>
-              <td>{{ list.p_list }}</td>
-              <td>{{ list.p_price }}</td>
-              <td>{{ list.p_weight }}</td>
+              <td>{{ store.g_district }}</td>
+              <td>{{ store.g_product }}</td>
+              <td>{{ store.g_tel }}</td>
               <td>
-                <a (click)="onEdit(list)">
+                <a (click)="onEdit(store)">
                   <img
                     class="icon"
                     src="../../../assets/icon/pencil-square.svg"
                 /></a>
               </td>
               <td>
-                <a (click)="onDelete(list.id)"
+                <a (click)="onDelete(store.id)"
                   ><img class="icon" src="../../../assets/icon/trash.svg"
                 /></a>
               </td>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="display-4">เพิ่มผู้ประกอบการ</h1>
+      <form #form="ngForm" autocomplete="off" (submit)="onSubmit(form)">
+        <input
+          type="hidden"
+          name="id"
+          #id="ngModel"
+          [(ngModel)]="storeservice.formData.id"
+        />
+        <div class="form-group">
+          <input
+            name="g_name"
+            #g_name="ngModel"
+            [(ngModel)]="storeservice.formData.g_name"
+            class="form-control"
+            placeholder="ชื่อผู้ประกอบการ"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="g_address"
+            #g_address="ngModel"
+            [(ngModel)]="storeservice.formData.g_address"
+            class="form-control"
+            placeholder="ที่อยู่"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="g_district"
+            #g_district="ngModel"
+            [(ngModel)]="storeservice.formData.g_district"
+            class="form-control"
+            placeholder="อำเภอ"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="g_subdistrict"
+            #g_subdistrict="ngModel"
+            [(ngModel)]="storeservice.formData.g_subdistrict"
+            class="form-control"
+            placeholder="ตำบล"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="g_product"
+            #g_product="ngModel"
+            [(ngModel)]="storeservice.formData.g_product"
+            class="form-control"
+            placeholder="สินค้าของท่าน"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="g_tel"
+            #g_tel="ngModel"
+            [(ngModel)]="storeservice.formData.g_tel"
+            class="form-control"
+            placeholder="เบอร์โทร"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="g_face"
+            #g_face="ngModel"
+            [(ngModel)]="storeservice.formData.g_face"
+            class="form-control"
+            placeholder="Facebook"
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="g_line"
+            #g_line="ngModel"
+            [(ngModel)]="storeservice.formData.g_line"
+            class="form-control"
+            placeholder="Line"
+            required
+          />
+        </div>
+        <div>
+          <input
+            type="file"
+            name="image"
+            (input)="onFileChanged($event)"
+            accept=".jpeg,.jpg,.png,.svg"
+          />
+          <br />
+          <img
+            [src]="downloadableURL"
+            onerror="this.onerror=null;this.src='assets/img/noimagepic.jpg';"
+            width="300px"
+            height="300px"
+            class="nopic"
+          />
+          <br />
+          <div class="form-group">
+            <input
+              name="g_pic"
+              type="text"
+              #g_pic="ngModel"
+              [(ngModel)]="storeservice.formData.g_pic"
+              class="form-control"
+              required
+              placeholder="นำลิ้งค์ด้านล่างมาใส่"
+            />
+          </div>
+          <div>
+            {{ downloadableURL }}
+          </div>
+        </div>
+
+        <div class="form-group">
+          <button type="submit" class="btn btn-lg btn-block btn-info">
+            ยืนยัน
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

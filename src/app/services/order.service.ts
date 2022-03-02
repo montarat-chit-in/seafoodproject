@@ -18,9 +18,6 @@ export class OrderService {
   getOrder() {
     return this.firestore.collection('product').snapshotChanges();
   }
-  getStore() {
-    return this.firestore.collection('group').snapshotChanges();
-  }
 
   getImage(image: File) {
     let ref = this.storage.ref('images/' + image.name);

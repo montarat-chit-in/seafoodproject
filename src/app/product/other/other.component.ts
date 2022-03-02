@@ -1,23 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
-import { element } from 'protractor';
 import { Observable } from 'rxjs';
 @Component({
-  selector: 'app-fish',
-  templateUrl: './fish.component.html',
-  styleUrls: ['./fish.component.css'],
+  selector: 'app-other',
+  templateUrl: './other.component.html',
+  styleUrls: ['./other.component.css'],
 })
-export class FishComponent implements OnInit {
-  fisher: any;
-  searchValue: string = '';
-  results: any;
+export class OtherComponent implements OnInit {
+  others;
   constructor(public firestore: AngularFirestore, private route: Router) {
     this.firestore
-      .collection('product', (ref) => ref.where('type', '==', '1'))
+      .collection('product', (ref) => ref.where('type', '==', '4'))
       .snapshotChanges()
       .subscribe((data) => {
-        this.fisher = data.map((element) => {
+        this.others = data.map((element) => {
           return {
             id: element.payload.doc.id,
             p_name: element.payload.doc.data()['p_name'],
@@ -32,34 +29,12 @@ export class FishComponent implements OnInit {
           };
         });
       });
-    this.results = this.fisher;
   }
 
   ngOnInit(): void {}
 
-  search() {
-    let self = this;
-    self.results = self.firestore
-      .collection('product', (ref) =>
-        ref
-          .orderBy('p_name')
-          .startAt(self.searchValue.toLowerCase())
-          .endAt(self.searchValue.toLowerCase() + '\uf8ff')
-          .limit(1)
-      )
-      .valueChanges();
-  }
-
   detail(id) {
-    this.route.navigate(['/fish/' + id]);
+    this.route.navigate(['/other/' + id]);
     console.log(id);
   }
 }
-// fishs: Observable<any[]>;
-// constructor(public firestore: AngularFirestore) {
-//   this.fishs = this.firestore
-//     .collection('product', (ref) => ref.where('type', '==', '1'))
-//     .valueChanges();
-// }
-
-// ngOnInit(): void {}

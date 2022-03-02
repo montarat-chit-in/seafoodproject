@@ -1,41 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-
-    <title>store page</title>
-  </head>
-  <body>
-    <div class="main">
-      <div class="container" *ngFor="let group of groups | async">
-        <div class="card">
-          <div class="image">
-            <img src="{{ group.g_pic }}" alt="" />
-          </div>
-          <div class="store-detail">
-            <h2>{{ group.g_name }}</h2>
-            <div class="detail">
-              <div class="data">
-                <span>ที่อยู่ :</span> {{ group.g_address }}
-              </div>
-              <div class="data"><span>เบอร์โทร :</span> {{ group.g_tel }}</div>
-              <div class="data">
-                <span> แผนที่ :</span>
-
-                <a href="{{ group.g_map }}" target="_blank"
-                  ><i></i> เปิดแผนที่
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </body>
-</html> -->
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -48,47 +10,59 @@
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
       crossorigin="anonymous"
     />
-    <title>Document</title>
+    <title>Store</title>
   </head>
   <body>
     <div class="container">
-      <!-- <select
-        [(ngModel)]="g_district"
-        (change)="filterExact('g_district', g_district)"
-      > -->
-      <select>
-        <option value="">เลือกอำเภอ</option>
-        <option value="g_district1">อำเภอเมือง</option>
-        <option value="g_district2">อำเภอกระบุรี</option>
-        <option value="g_district3">อำเภอกะเปอร์</option>
-        <option value="g_district4">อำเภอละอุ่น</option>
-        <option value="g_district5">อำเภอสุขสำราญ</option>
+      <select #mySelect (change)="change(mySelect.value)">
+        <option [value]="country" *ngFor="let country of countries">
+          {{ country }}
+        </option>
       </select>
 
       <table>
         <tr>
-          <th>ชื่อผู้ประกอบการ</th>
           <th>รูป</th>
-          <th>อำเภอ</th>
+          <th>ชื่อผู้ประกอบการ</th>
+          <th>ที่อยู่</th>
+          <!-- <th>อำเภอ</th> -->
           <th>เบอร์โทร</th>
-          <th>แผนที่</th>
           <th>ข้อมูลเพิ่มเติม</th>
         </tr>
+
         <tr *ngFor="let group of storer">
-          <td>{{ group.g_name }}</td>
-          <td>
-            <img src="{{ group.g_pic }}" alt="" />
-          </td>
-          <td>{{ group.g_district }}</td>
-          <td>{{ group.g_tel }}</td>
-          <td>
-            <a href="{{ group.g_map }}" target="_blank"><i></i> เปิดแผนที่ </a>
-          </td>
-          <td>
-            <a (click)="detailstore(group.id)"
-              ><img class="icon" src="../../assets/icon/arrow-right-right.svg"
-            /></a>
-          </td>
+          <ng-container *ngIf="select == group.g_district">
+            <!-- <div>
+            <h2 (click)="test(group.g_subdistrict)">{{ group.g_subdistrict }}</h2>
+          </div> -->
+            <!-- <div *ngIf="testt === group.g_subdistrict"></div> -->
+
+            <td>
+              <img src="{{ group.g_pic }}" alt="" />
+            </td>
+            <td>{{ group.g_name }}</td>
+            <td>{{ group.g_address }}</td>
+            <!-- <td>{{ group.g_district }}</td> -->
+            <td>{{ group.g_tel }}</td>
+
+            <td class="arrow">
+              <a (click)="detailstore(group.id)">ดูรายละเอียด</a>
+            </td>
+          </ng-container>
+
+          <ng-container *ngIf="!select">
+            <td>
+              <img src="{{ group.g_pic }}" alt="" />
+            </td>
+            <td>{{ group.g_name }}</td>
+            <td>{{ group.g_address }}</td>
+            <!-- <td>{{ group.g_district }}</td> -->
+            <td>{{ group.g_tel }}</td>
+
+            <td class="arrow">
+              <a (click)="detailstore(group.id)">ดูรายละเอียด</a>
+            </td>
+          </ng-container>
         </tr>
       </table>
     </div>

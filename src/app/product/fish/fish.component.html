@@ -15,6 +15,23 @@
   <body>
     <section>
       <div class="container">
+        <!-- <div>
+          <input type="text" (keyup)="search()" [(ngModel)]="searchValue" />
+          <div class="search-results">
+            <div class="search-result" *ngFor="let result of results | async">
+              <div class="deal-box">
+                <div>
+                  <img src="{{ result.p_pic }}" class="img-fluid" alt="" />
+                </div>
+                <h2>{{ result.p_name }}</h2>
+                <div class="button">
+                  <a class="deal-btn" (click)="detail(result.id)">รายละเอียด</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->
+
         <div class="head-type fish">สินค้าประเภทปลา</div>
         <div class="section mt-5">
           <div class="row">

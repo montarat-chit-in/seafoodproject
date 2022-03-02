@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { NgForm } from '@angular/forms';
 import { OrderService } from '../services/order.service';
 import { Router } from '@angular/router';
+import { Order } from '../services/order.model';
 import {
   AngularFireStorage,
   AngularFireUploadTask,
@@ -13,6 +14,8 @@ import {
   styleUrls: ['./order.component.css'],
 })
 export class OrderComponent implements OnInit {
+  productlist: Order[];
+
   constructor(
     public orderservice: OrderService,
     private firestore: AngularFirestore,
@@ -61,12 +64,12 @@ export class OrderComponent implements OnInit {
   }
 
   onSubmit(form: NgForm) {
+    // let image = (<HTMLInputElement>this.image.nativeElement).files[0];
     let data = Object.assign({}, form.value);
     delete data.id;
+    this.firestore.doc('product/' + form.value.id).update(data);
     if (form.value.id == null) this.firestore.collection('product').add(data);
-    else this.firestore.doc('product/' + form.value.id).update(data);
     this.resetForm(form);
-    this.router.navigate(['/listdata']);
   }
   // onSubmit(form: NgForm) {
   //   let data = form.value;
